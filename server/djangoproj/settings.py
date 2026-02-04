@@ -16,10 +16,6 @@ SECRET_KEY = 'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 DEBUG = True
 
 # -------------------------------------------------------------------------
-# CHANGE 1: ADD YOUR URLS HERE AFTER LAUNCHING THE APP
-# Example: 'bossanshuman-8000.theiadocker-4.proxy.cognitiveclass.ai'
-# -------------------------------------------------------------------------
-# -------------------------------------------------------------------------
 # CHANGE 1: CORRECTED URLS (No 'https://' in ALLOWED_HOSTS, No trailing '/')
 # -------------------------------------------------------------------------
 ALLOWED_HOSTS = [
@@ -32,6 +28,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://bossanshuman-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai'
 ]
 # -------------------------------------------------------------------------
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
@@ -61,9 +58,13 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # -----------------------------------------------------------------
-        # CHANGE 2: Link Frontend Templates
+        # CHANGE 2: Link Frontend Templates (Updated with Build paths)
         # -----------------------------------------------------------------
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/static')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'frontend/static'),
+            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'frontend/build/static'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,8 +114,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # -----------------------------------------------------------------
-# CHANGE 3: Link Static Files
+# CHANGE 3: Link Static Files (Updated with Build paths)
 # -----------------------------------------------------------------
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/static')
+    os.path.join(BASE_DIR, 'frontend/static'),
+    os.path.join(BASE_DIR, 'frontend/build'),
+    os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
