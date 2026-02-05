@@ -1,3 +1,9 @@
 {
-  "esversion": 8
+  "esversion": 9,
+  "asi": true,
+  "laxbreak": true,
+  "laxcomma": true,
+  "sub": true,
+  "browser": true,
+  "node": true
 }
